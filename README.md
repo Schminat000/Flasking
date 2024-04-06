@@ -124,3 +124,6 @@ Access restricted based on user authentication and authorization.
 5. Run the code again.
 6. The server is now running! Go to the page it gives you by control-clicking the address it gives you in the terminal and enjoy your personal note web server!
 - To close the server, type CTRL + C in the terminal.
+
+## Known Issues:
+- It will log "Server is shutting down..." twice.
