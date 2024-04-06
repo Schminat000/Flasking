@@ -118,7 +118,7 @@ Access restricted based on user authentication and authorization.
 2. Go to the project directory and enter the following to install the requirements:
 - pip install -r requirements.txt
 3. After installation, refresh your code editor.
-4. Run the code v### Step One:ia command line:
+4. Run the code via command line:
 - python main.py
 - This will create an instance folder within the project folder with the database inside, as well as the database_backups folder. It will also create a logs folder and begin filling information in an app.log file.
 5. Run the code again.
