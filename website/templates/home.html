@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1 align="center">
+    Notes
+</h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">
+        {{ note.text }}
+        <form action="{{ url_for('views.edit_note', note_id=note.id) }}" method="GET" style="display: inline;">
+            <button type="submit" class="btn btn-primary">
+                Edit
+            </button>
+            <button type="button" class="close" onClick="delete_note('{{ note.id }}')">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <br/>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">
+            Add Note
+        </button>
+        <a href="{{ url_for('views.download_notes') }}" class="btn btn-success">
+            Download Notes
+        </a>
+    </div>
+</form>
+{% endblock %}
