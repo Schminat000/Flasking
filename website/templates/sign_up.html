@@ -1,37 +1,39 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
+<!-- Sign-up form -->
 <form method="POST">
-    <h3 align="center">
-        Sign Up
-    </h3>
+    <!-- Heading for sign-up -->
+    <h3 align="center">Sign Up</h3>
+    
+    <!-- Email input -->
     <div class="form-group">
-        <label for="email">
-            Email Address:
-        </label>
+        <label for="email">Email Address:</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter an email">
     </div>
+    
+    <!-- First name input -->
     <div class="form-group">
-        <label for="first-name">
-            First Name:
-        </label>
+        <label for="first-name">First Name:</label>
         <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name">
     </div>
+    
+    <!-- Password input -->
     <div class="form-group">
-        <label for="password1">
-            Password:
-        </label>
+        <label for="password1">Password:</label>
         <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter a password">
     </div>
+    
+    <!-- Confirm password input -->
     <div class="form-group">
-        <label for="password1">
-            Password (confirmation):
-        </label>
+        <label for="password1">Password (confirmation):</label>
         <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm your password">
     </div>
+    
+    <!-- Submit button -->
     <br>
-    <button type="submit" class="btn btn-primary">
-        Submit
-    </button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}

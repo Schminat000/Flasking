@@ -1,36 +1,42 @@
 {% extends "base.html" %}
+
 {% block title %}Home{% endblock %}
+
 {% block content %}
-<h1 align="center">
-    Notes
-</h1>
+<!-- Heading for notes -->
+<h1 align="center">Notes</h1>
+
+<!-- List to display notes -->
 <ul class="list-group list-group-flush" id="notes">
     {% for note in user.notes %}
+    <!-- Individual note item -->
     <li class="list-group-item">
+        <!-- Display note text -->
         {{ note.text }}
+        
+        <!-- Form for editing note -->
         <form action="{{ url_for('views.edit_note', note_id=note.id) }}" method="GET" style="display: inline;">
-            <button type="submit" class="btn btn-primary">
-                Edit
-            </button>
+            <!-- Button to edit note -->
+            <button type="submit" class="btn btn-primary">Edit</button>
+            
+            <!-- Button to delete note (using JavaScript function delete_note()) -->
             <button type="button" class="close" onClick="delete_note('{{ note.id }}')">
-                <span aria-hidden="true">
-                    &times;
-                </span>
+                <span aria-hidden="true">&times;</span>
             </button>
         </form>
     </li>
     {% endfor %}
 </ul>
+
+<!-- Form for adding a new note -->
 <form method="POST">
+    <!-- Text area for entering new note -->
     <textarea name="note" id="note" class="form-control"></textarea>
     <br/>
+    <!-- Buttons to add a new note and download notes -->
     <div align="center">
-        <button type="submit" class="btn btn-primary">
-            Add Note
-        </button>
-        <a href="{{ url_for('views.download_notes') }}" class="btn btn-success">
-            Download Notes
-        </a>
+        <button type="submit" class="btn btn-primary">Add Note</button>
+        <a href="{{ url_for('views.download_notes') }}" class="btn btn-success">Download Notes</a>
     </div>
 </form>
 {% endblock %}

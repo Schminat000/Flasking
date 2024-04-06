@@ -1,10 +1,17 @@
 {% extends "base.html" %}
+
 {% block title %}Edit Note{% endblock %}
+
 {% block content %}
+<!-- Heading for editing note -->
 <h1>Edit Note</h1>
+
+<!-- Form for editing note -->
 <form method="POST">
+    <!-- Text area for entering new text, populated with existing note text -->
     <textarea name="new_text" id="new_text" class="form-control">{{ note.text }}</textarea>
     <br/>
+    <!-- Button to submit updated note -->
     <div align="center">
         <button type="submit" class="btn btn-primary">
             Update Note

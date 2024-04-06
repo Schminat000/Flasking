@@ -1,19 +1,23 @@
+# Import necessary modules and functions from Flask and other packages
 from flask import Blueprint, render_template, request, flash, jsonify, Response, redirect, url_for
 from flask_login import login_required, current_user
 from .models import Note
 from . import db
 import json, logging
 
+# Create a Blueprint for views
 views = Blueprint("views", __name__)
 
+# Configure logging
 logging.basicConfig(filename="app.log", level=logging.INFO, format="[%(asctime)s] %(levelname)s %(name)s: %(message)s")
 
+# Route for the home page
 @views.route("/", methods=["GET", "POST"])
 @login_required
 def home():
+    # Handle adding new note
     if request.method == "POST":
         note = request.form.get("note")
-
         if len(note) < 1:
             flash("Note is too short!", category="error")
         else:
@@ -25,6 +29,7 @@ def home():
             
     return render_template("home.html", user=current_user)
 
+# Route for deleting a note
 @views.route("/delete-note", methods=["POST"])
 def delete_note():
     note = json.loads(request.data)
@@ -38,6 +43,7 @@ def delete_note():
 
     return jsonify({})
 
+# Route for editing a note
 @views.route("/edit-note/<int:note_id>", methods=["GET", "POST"])
 @login_required
 def edit_note(note_id):
@@ -45,6 +51,7 @@ def edit_note(note_id):
     if note:
         if note.user_id == current_user.id:
             if request.method == "POST":
+                # Handle editing existing note
                 new_text = request.form.get("new_text")
                 if len(new_text) < 1:
                     flash("Note is too short!", category="error")
@@ -62,17 +69,20 @@ def edit_note(note_id):
     
     return redirect(url_for("views.home"))
 
+# Route for downloading notes
 @views.route("/download-notes", methods=["GET"])
 @login_required
 def download_notes():
     logging.info(f"Notes downloaded by user: {current_user.email}")
     notes = Note.query.filter_by(user_id=current_user.id).all()
 
+    # Generate text data for notes
     text_data = ""
     for note in notes:
         text_data += f"Note ID: {note.id}\n"
         text_data += f"Text: {note.text}\n\n"
 
+    # Prepare response for downloading notes as a text file
     response = Response(
         text_data,
         content_type="text/plain",
