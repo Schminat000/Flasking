@@ -103,22 +103,22 @@ Access restricted based on user authentication and authorization.
 - Data encrypted at rest and in transit.
 
 ### Testing
-| Feature                   | Must Have Requirement                                                                                      | Stretch Requirement                     | Acceptance Testing Criteria                                                                                    |
-|---------------------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| User Management           | Registration form validates password strength and uniqueness. Hashed and salted passwords stored securely. | Users can recover forgotten passwords.  | Users can register with secure credentials. Successful login and access control. Password reset functionality. |
-| Data Storage & Retrieval  | Data stored securely. Users can view, edit, delete, and download their data.                               | Data encryption for individual entries. | Secure storage and retrieval of data. Data displayed accurately.                                               |
-| Security & Access Control | Data encrypted at rest and in transit.                                                                     | Implement activity logs.                | Encryption at rest and in transit. Access control based on user authentication.                                |
-| User Interface (UI)       | User-friendly interface.                                                                                   | -                                       | Visually appealing and intuitive UI. All functionalities accessible.                                           |
-| System Administration     | Implement logging mechanisms.                                                                              | -                                       | Logs capture user actions and server events. Logs accessible for monitoring and troubleshooting.               |
+| Feature                   | Must Have Requirement                                                                                      | Stretch Requirement                                   | Acceptance Testing Criteria                                                                                    |
+|---------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| User Management           | Registration form validates password strength and uniqueness. Hashed and salted passwords stored securely. | Users can recover forgotten passwords.    (Incomplete)| Users can register with secure credentials. Successful login and access control. Password reset functionality. |
+| Data Storage & Retrieval  | Data stored securely. Users can view, edit, delete, and download their data.                               | Data encryption for individual entries.   (Incomplete)| Secure storage and retrieval of data. Data displayed accurately.                                               |
+| Security & Access Control | Data encrypted at rest and in transit.                                                                     | Implement activity logs.                    (Complete)| Encryption at rest and in transit. Access control based on user authentication.                                |
+| User Interface (UI)       | User-friendly interface.                                                                                   | -                                                     | Visually appealing and intuitive UI. All functionalities accessible.                                           |
+| System Administration     | Implement logging mechanisms.                                                                              | -                                                     | Logs capture user actions and server events. Logs accessible for monitoring and troubleshooting.               |
 
 ## Deployment
-### Step One:
+### Instructions:
 1. Navigate to your local machine and code editor then do the following:
 - git clone https://github.com/schminat000/flasking.git
 2. Go to the project directory and enter the following to install the requirements:
 - pip install -r requirements.txt
 3. After installation, refresh your code editor.
-4. Run the code via command line:
+4. Run the code v### Step One:ia command line:
 - python main.py
 - This will create an instance folder within the project folder with the database inside, as well as the database_backups folder. It will also create a logs folder and begin filling information in an app.log file.
 5. Run the code again.
