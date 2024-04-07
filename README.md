@@ -75,7 +75,7 @@ The project focuses on essential features such as registration, secure login, da
 Stored securely in an encrypted SQLite database.
 
 ### Data on the Wire
-Transmitted over HTTP(Flask-Talisman) for secure communication.
+Transmitted over HTTP (Flask-Talisman) for secure communication.
 
 ### Data State
 Access restricted based on user authentication and authorization.
